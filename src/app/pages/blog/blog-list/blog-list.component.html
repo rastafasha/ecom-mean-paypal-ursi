@@ -1,0 +1,39 @@
+<div class="blog-layout-2" id="page">
+    <section class="sub-header shop-layout-1">
+        <img class="rellax bg-overlay" src="images/sub-header/05.jpg" alt="">
+        <div class="overlay-call-to-action"></div>
+        <h3 class="heading-style-3">Blog</h3>
+    </section>
+    <section class="boxed-sm">
+        <div class="container">
+            <div class="row main">
+                <div class="row js-post-masonry-3-columns-wrapper pinterest-layout-post pinterest-3-cols">
+                    <div class="post" *ngFor="let blog of blogs |  paginate: { itemsPerPage: count, currentPage: p }">
+                        <div class="img-wrapper">
+                            <a [routerLink]="['/blog', blog._id]">
+                                <img [src]="blog.img | imagenPipe: 'blogs'" alt="blog-thumb {{blog.titulo}}" />
+                                <!-- <img src="{{imagenSerUrl}}/blogs/{{blog.img}}" alt="blog-thumb {{blog.titulo}}" /> -->
+                            </a>
+                        </div>
+                        <div class="desc">
+                            <h4>
+                                <a [routerLink]="['/blog', blog._id]">{{blog.titulo}}</a>
+                            </h4>
+                            <p class="meta">
+                                <span class="time">{{blog.createdAt | date:'mediumDate'}}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <!-- paginador -->
+                <div class="row" *ngIf="blogs.length > 8">
+                    <div class="col-md-12 text-right">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

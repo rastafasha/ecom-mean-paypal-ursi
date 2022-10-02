@@ -1,0 +1,24 @@
+@charset "UTF-8";
+@import url("main-template.css");
+@import url("ursiStyle.css");
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.clear {
+    clear: both;
+    visibility: hidden;
+    margin: 0px;
+    padding: 0px;
+    height: 0;
+}
+
+.precioviejo {
+    text-decoration: line-through;
+}

@@ -1,0 +1,59 @@
+<section class="sub-header shop-layout-1">
+    <img class="rellax bg-overlay" src="images/sub-header/05.jpg" alt="">
+    <div class="overlay-call-to-action"></div>
+    <h3 class="heading-style-3">About</h3>
+</section>
+<section class="boxed-sm mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="creative-layout-post-style-1" *ngFor="let item of pages ">
+                <div class="post-creative-style-1 right-thumb">
+                    <div class="col-sm-6">
+                        <div class="desc">
+                            <h3>
+                                <a [routerLink]="['/about', item._id]">{{item.titulo}}</a>
+                            </h3>
+                            <p class="sapo hidden-sm hidden-xs">{{item.descripcion | slice:0:120}} ...</p>
+                            <a class="btn btn-brand pill" [routerLink]="['/about', item._id]">View</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="img-wrapper">
+                            <a [routerLink]="['/about', item._id]">
+                                <img class="img-responsive" [src]="item.img | imagenPipe: 'pages'" alt="{{item.titulo}}">
+                                <!-- <img class="img-responsive" src="{{imagenSerUrl}}/pages/{{item.img}}" alt="{{item.titulo}}"> -->
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="post-creative-style-1 left-thumb">
+                  <div class="col-sm-6">
+                      <div class="img-wrapper">
+                          <h3 class="cate">
+                              <strong>02 </strong>PLANT INDOOR</h3>
+                          <a [routerLink]="['/about', item.id]">
+                              <img class="img-responsive" src="{{item.img}}" alt="{{item.title}}">
+                          </a>
+                      </div>
+                  </div>
+                  <div class="col-sm-6">
+                      <div class="desc">
+                          <h3>
+                              <a [routerLink]="['/about', item.id]">{{item.title}}</a>
+                          </h3>
+                          <p class="sapo hidden-sm hidden-xs"> {{item.description | slice: 0:120}} ...</p>
+                          <a class="btn btn-brand pill" [routerLink]="['/about', item.id]">View</a>
+                      </div>
+                  </div>
+              </div> -->
+            </div>
+        </div>
+        <!-- paginador -->
+        <div class="row" *ngIf="pages.length > 8">
+            <div class="col-md-12 text-right">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+            </div>
+        </div>
+    </div>
+</section>

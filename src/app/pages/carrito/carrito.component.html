@@ -1,0 +1,110 @@
+<div class="shop-cart" id="page">
+    <section class="sub-header shop-detail-1">
+        <img class="rellax bg-overlay" src="images/sub-header/013.jpg" alt="">
+        <div class="overlay-call-to-action"></div>
+        <h3 class="heading-style-3">Shop Cart</h3>
+    </section>
+
+    <div *ngIf="cartItems.length < 1">
+        <section class="boxed-sm">
+            <div class="container">
+                <div class="alert alert-info text-center" style="margin-top: 25px;">
+                    <h4>Your Cart is empty</h4>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div *ngIf="cartItems.length > 0">
+        <section class="boxed-sm">
+            <div class="container">
+                <div class="woocommerce">
+                    <form class="woocommerce-cart-form">
+                        <table class="woocommerce-cart-table">
+                            <thead>
+                                <tr>
+                                    <th class="product-thumbnail">Product img</th>
+                                    <th class="product-name">Name</th>
+                                    <th class="product-quantity">Quantity</th>
+                                    <th class="product-price">Price</th>
+                                    <th class="product-subtotal">Total</th>
+                                    <th class="product-remove">Remove</th>
+                                    <th class="product-add">Add</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let item of cartItems; index as i">
+                                <tr>
+                                    <td class="product-thumbnail">
+                                        <a class="product-thumbnail" [routerLink]="['/category/cat.nombre/',item.productId]">
+
+
+                                            <img src="{{imagenSerUrl}}productos/{{item.img}}" style="height: 60px;" alt="product-thumbnail">
+                                        </a>
+                                    </td>
+                                    <td class="product-name" data-title="Name">{{item.productName }}</td>
+                                    <td class="product-quantity" data-title="Quantity">
+                                        <input class="qty" step="1" min="0" max="" name="{{item.quantity}}" formControlName="quantity" value="{{item.quantity}}" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" type="number">
+                                    </td>
+                                    <td class="product-price" data-title="Price">${{item.productPrice | number: '1.1-2'}}</td>
+                                    <td class="product-subtotal" data-title="Total">${{item.quantity * item.productPrice | number: '1.1-2'}}</td>
+                                    <td class="product-remove">
+                                        <a class="remove" aria-label="Remove this item">
+                                            <i (click)="deletItem(i)" class="fa fa-trash fa-2x"></i>
+                                        </a>
+                                    </td>
+                                    <td class="product-add">
+                                        <a (click)="addToCart(i)" class="remove" aria-label="Remove this item">
+                                            <i (click)="addToCart(i)" class="fa fa-cart-plus fa-2x"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="7">
+                                        <div class="form-coupon organic-form">
+                                            <div class="form-group">
+                                                <input class="form-control pill" placeholder="Coupon Code">
+                                            </div>
+                                            <div class="form-group">
+                                                <a class="btn btn-brand pill" href="#">APPLY COUPON</a>
+                                            </div>
+                                            <div class="form-group ">
+                                                <a class="btn btn-brand-ghost pill" (click)="emptyCart()">EMPTY CART</a>
+                                            </div>
+                                            <div class="form-group update-cart">
+                                                <a class="btn btn-brand-ghost pill">UPDATE CART</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                    <div class="cart_totals">
+                        <h3 class="title">Cart Total</h3>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <table class="woocommerce-cart-subtotal">
+                                    <tbody>
+
+                                        <tr>
+                                            <th>Total</th>
+                                            <td data-title="Total">${{total}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="proceed-to-checkout">
+                                    <a class="btn btn-brand pill" [routerLink]="['/checkout']">PROCEED TO CHECKOUT</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>

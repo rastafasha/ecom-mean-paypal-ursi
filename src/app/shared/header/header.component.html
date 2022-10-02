@@ -1,0 +1,149 @@
+<div class="home-3" id="page">
+    <nav id="menu">
+        <ul>
+            <li>
+                <a routerLink="/home" routerLinkActive="active">Home</a>
+            </li>
+            <!-- <li *ngFor="let cat of categories ">
+                <a [routerLink]="['/category', cat.nombre]">{{cat.nombre}}</a>
+            </li> -->
+            <li>
+                <a routerLink="/about" routerLinkActive="active">About</a>
+            </li>
+
+            <li>
+                <a routerLink="/gallery" routerLinkActive="active">Gallery</a>
+            </li>
+            <li>
+                <a routerLink="/blogs" routerLinkActive="active">Blog</a>
+            </li>
+            <li>
+                <a routerLink="/cart" routerLinkActive="active">Cart</a>
+            </li>
+            <li>
+                <a routerLink="/contact" routerLinkActive="active">Contact</a>
+            </li>
+            <li>
+                <a href="#">User</a>
+                <ul>
+                    <li>
+                        <a routerLink="/gallery" routerLinkActive="active">My Profile</a>
+                    </li>
+                    <li>
+                        <a routerLink="/gallery" routerLinkActive="active">Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <header class="header-style-3">
+        <a class="brand-logo " routerLink="/home">
+            <img class="img-responsive" src="./assets/images/logo.png" alt="" />
+        </a>
+        <div class="header-3-inner">
+            <div class="widget widget-control-header widget-search-header">
+                <a class="btn-open-search-form js-open-search-form-header" href="#">
+                    <span class="lnr lnr-magnifier"></span>
+                </a>
+                <div class="form-outer">
+                    <button class="btn-close-form-search-header js-close-search-form-header">
+          <span class="lnr lnr-cross"></span>
+        </button>
+                    <form>
+                        <input placeholder="Search" />
+                        <button class="search">
+            <span class="lnr lnr-magnifier"></span>
+          </button>
+                    </form>
+                </div>
+            </div>
+            <nav>
+                <ul class="menu hidden-xs">
+                    <li>
+                        <a routerLink="/home" routerLinkActive="active">Home</a>
+                    </li>
+                    <!-- <li *ngFor="let cat of categories ">
+                      <a [routerLink]="['/category', cat.nombre]">{{cat.nombre}}</a>
+                  </li> -->
+
+                    <li>
+                        <a routerLink="/cursos" routerLinkActive="active">Cursos</a>
+                    </li>
+                    <li>
+                        <a routerLink="/productos" routerLinkActive="active">Productos</a>
+                    </li>
+                    <li>
+                        <a routerLink="/about" routerLinkActive="active">About</a>
+                    </li>
+
+                    <li>
+                        <a routerLink="/gallery" routerLinkActive="active">Gallery</a>
+                    </li>
+                    <li>
+                        <a routerLink="/blogs" routerLinkActive="active">Blog</a>
+                    </li>
+                    <li>
+                        <a routerLink="/cart" routerLinkActive="active">Cart</a>
+                    </li>
+                    <li>
+                        <a routerLink="/contact" routerLinkActive="active">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#">My Account</a>
+                        <ul>
+                            <li>
+                                <a routerLink="/login" routerLinkActive="active">Login</a>
+                            </li>
+                            <div *ngIf="!user">
+                                <li>
+                                    <a routerLink="/registro" routerLinkActive="active">Register</a>
+                                </li>
+
+                            </div>
+                            <div *ngIf="user">
+                                <li>
+                                    <a routerLink="/myprofile" routerLinkActive="active">My Profile</a>
+                                </li>
+                                <!-- <li>
+                                  <a (click)="logout()" routerLinkActive="active">Logout</a>
+                              </li> -->
+                            </div>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <aside class="right">
+                <div class="widget widget-control-header">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" id="dropdownMenu1" href="#" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">USD
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
+          </a>
+                        <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                          <li>
+                              <a href="#">YEN</a>
+                          </li>
+                          <li>
+                              <a href="#">EUR</a>
+                          </li>
+                      </ul> -->
+                    </div>
+                </div>
+                <div class="widget widget-control-header widget-shop-cart js-widget-shop-cart">
+                    <a class="control" routerLink="['/cart']">
+                        <p>{{cartItems.length}}</p>
+                        <p>${{total}}</p>
+                        <span class="lnr lnr-bag"></span>
+                    </a>
+                </div>
+                <div class="widget widget-control-header hidden-lg hidden-md hidden-sm">
+                    <a class="navbar-toggle js-offcanvas-has-events" type="button" href="#menu">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </header>
+
+</div>
